@@ -1,8 +1,8 @@
 {
-  "name": "",
-  "description": "",
-  "version": "0.0.0",
-  "main": "src/index.js",
+  "name": "somehow-barchart",
+  "description": "svelte barchart component",
+  "version": "0.0.1",
+  "main": "src/index.mjs",
   "author": "Spencer Kelly (spencermountain)",
   "homepage": "https://github.com/spencermountain/",
   "scripts": {

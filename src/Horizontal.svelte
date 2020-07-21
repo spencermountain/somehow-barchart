@@ -26,15 +26,17 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: end;
     text-align: right;
     flex-wrap: nowrap;
     align-self: stretch;
   }
   .label {
-    color: #3d3d3d;
+    color: #a6a4a4;
     min-width: 100px;
     max-width: 100px;
+    font-size: 16px;
+    margin-right: 1rem;
   }
   .bar {
     height: 20px;
