@@ -3,8 +3,6 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 
-// console.log(process.argv)
-
 function serve() {
   let started = false
   return {
