@@ -3,9 +3,6 @@
   import { bars } from './store'
   import layout from './layout'
 
-  export let width = '100%'
-  export let height = '350px'
-
   let arr = []
   onMount(() => {
     arr = layout($bars)
@@ -13,8 +10,9 @@
 </script>
 
 <style>
-  .container {
+  .barchart {
     position: relative;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -22,6 +20,7 @@
     text-align: right;
     flex-wrap: nowrap;
     align-self: stretch;
+    min-height: 50px;
   }
   .item {
     display: flex;
@@ -33,8 +32,7 @@
     flex-wrap: nowrap;
     flex-grow: 1;
     align-self: stretch;
-    /* min-width: 100px; */
-    /* max-width: 100px; */
+    margin: 5px;
   }
   .label {
     color: #a6a4a4;
@@ -49,13 +47,17 @@
   .bar {
     align-self: center;
     min-width: 20px;
+    width: 100%;
     margin-top: 10px;
     border-radius: 2px;
     box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
   }
+  .bar:hover {
+    box-shadow: 2px 2px 8px 0px steelblue;
+  }
 </style>
 
-<div class="container" style="width:{width}; height:{height};">
+<div class="barchart" style="width:100%; height:100%;">
   {#each arr as bar}
     <div class="item">
       <div class="bar" style="background-color:{bar.color}; height:{bar.size}%;" />

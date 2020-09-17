@@ -1,4 +1,4 @@
-import App from './App.svelte'
+import Demo from './Demo.svelte'
 
 // wire-in query params
 // let user = ''
@@ -11,7 +11,7 @@ import App from './App.svelte'
 //   }
 // }
 
-const app = new App({
+const app = new Demo({
   target: document.body
   // props: { user: user }
 })
