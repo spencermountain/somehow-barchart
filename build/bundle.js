@@ -500,7 +500,7 @@ var app = (function () {
 
     const getMax = function (arr) {
       let max = arr[0];
-      for (let i = 1; i < arr; ++i) {
+      for (let i = 1; i < arr.length; ++i) {
         if (arr[i] > max) {
           max = arr[i];
         }
@@ -538,28 +538,63 @@ var app = (function () {
 
     function add_css() {
     	var style = element("style");
-    	style.id = "svelte-1i5k5y0-style";
-    	style.textContent = ".barchart.svelte-1i5k5y0{position:relative;width:100%;display:flex;flex-direction:row;justify-content:space-around;align-items:flex-start;text-align:right;flex-wrap:nowrap;align-self:stretch}.col.svelte-1i5k5y0{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:center;flex-wrap:wrap;align-self:stretch}.bars.svelte-1i5k5y0{flex:1}.labels.svelte-1i5k5y0{position:relative;flex:0;align-items:flex-end;text-align:right}.row.svelte-1i5k5y0{height:20px;margin-top:10px}.label.svelte-1i5k5y0{position:relative;top:-1px;align-self:flex-end;color:#a6a4a4;font-size:16px;margin-right:5px;margin-left:1rem;white-space:nowrap}.bar.svelte-1i5k5y0{position:relative;border-radius:2px;box-shadow:2px 2px 8px 0px rgba(0, 0, 0, 0.2)}.bar.svelte-1i5k5y0:hover{box-shadow:2px 2px 8px 0px steelblue}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSG9yaXpvbnRhbC5zdmVsdGUiLCJzb3VyY2VzIjpbIkhvcml6b250YWwuc3ZlbHRlIl0sInNvdXJjZXNDb250ZW50IjpbIjxzY3JpcHQ+XG4gIGltcG9ydCB7IHNldENvbnRleHQsIG9uTW91bnQgfSBmcm9tICdzdmVsdGUnXG4gIGltcG9ydCB7IGJhcnMgfSBmcm9tICcuL3N0b3JlJ1xuICBpbXBvcnQgbGF5b3V0IGZyb20gJy4vbGF5b3V0J1xuXG4gIGxldCBhcnIgPSBbXVxuICBvbk1vdW50KCgpID0+IHtcbiAgICBhcnIgPSBsYXlvdXQoJGJhcnMpXG4gIH0pXG48L3NjcmlwdD5cblxuPHN0eWxlPlxuICAuYmFyY2hhcnQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG4gICAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gICAgZmxleC13cmFwOiBub3dyYXA7XG4gICAgYWxpZ24tc2VsZjogc3RyZXRjaDtcbiAgfVxuICAuY29sIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICBhbGlnbi1zZWxmOiBzdHJldGNoO1xuICB9XG4gIC5iYXJzIHtcbiAgICBmbGV4OiAxO1xuICB9XG4gIC5sYWJlbHMge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBmbGV4OiAwO1xuICAgIGFsaWduLWl0ZW1zOiBmbGV4LWVuZDtcbiAgICB0ZXh0LWFsaWduOiByaWdodDtcbiAgfVxuICAucm93IHtcbiAgICBoZWlnaHQ6IDIwcHg7XG4gICAgbWFyZ2luLXRvcDogMTBweDtcbiAgfVxuICAubGFiZWwge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0b3A6IC0xcHg7XG4gICAgYWxpZ24tc2VsZjogZmxleC1lbmQ7XG4gICAgY29sb3I6ICNhNmE0YTQ7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICAgIG1hcmdpbi1yaWdodDogNXB4O1xuICAgIG1hcmdpbi1sZWZ0OiAxcmVtO1xuICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIH1cbiAgLmJhciB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGJvcmRlci1yYWRpdXM6IDJweDtcbiAgICBib3gtc2hhZG93OiAycHggMnB4IDhweCAwcHggcmdiYSgwLCAwLCAwLCAwLjIpO1xuICB9XG4gIC5iYXI6aG92ZXIge1xuICAgIGJveC1zaGFkb3c6IDJweCAycHggOHB4IDBweCBzdGVlbGJsdWU7XG4gIH1cbjwvc3R5bGU+XG5cbjxkaXYgY2xhc3M9XCJiYXJjaGFydFwiPlxuICA8IS0tIGxhYmVscyAtLT5cbiAgPGRpdiBjbGFzcz1cImNvbCBsYWJlbHNcIj5cbiAgICB7I2VhY2ggYXJyIGFzIGJhcn1cbiAgICAgIDxkaXYgY2xhc3M9XCJyb3cgbGFiZWxcIj5cbiAgICAgICAge0BodG1sIGJhci5sYWJlbH1cbiAgICAgIDwvZGl2PlxuICAgIHsvZWFjaH1cbiAgPC9kaXY+XG4gIDwhLS0gYmFycyAtLT5cbiAgPGRpdiBjbGFzcz1cImNvbCBiYXJzXCI+XG4gICAgeyNlYWNoIGFyciBhcyBiYXJ9XG4gICAgICA8ZGl2IGNsYXNzPVwicm93IGJhclwiIHN0eWxlPVwiYmFja2dyb3VuZC1jb2xvcjp7YmFyLmNvbG9yfTsgd2lkdGg6e2Jhci5zaXplfSU7XCIgLz5cbiAgICB7L2VhY2h9XG4gIDwvZGl2PlxuXG48L2Rpdj5cbjxzbG90IC8+XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBWUUsU0FBUyxlQUFDLENBQUMsQUFDVCxRQUFRLENBQUUsUUFBUSxDQUNsQixLQUFLLENBQUUsSUFBSSxDQUNYLE9BQU8sQ0FBRSxJQUFJLENBQ2IsY0FBYyxDQUFFLEdBQUcsQ0FDbkIsZUFBZSxDQUFFLFlBQVksQ0FDN0IsV0FBVyxDQUFFLFVBQVUsQ0FDdkIsVUFBVSxDQUFFLEtBQUssQ0FDakIsU0FBUyxDQUFFLE1BQU0sQ0FDakIsVUFBVSxDQUFFLE9BQU8sQUFDckIsQ0FBQyxBQUNELElBQUksZUFBQyxDQUFDLEFBQ0osT0FBTyxDQUFFLElBQUksQ0FDYixjQUFjLENBQUUsTUFBTSxDQUN0QixlQUFlLENBQUUsTUFBTSxDQUN2QixXQUFXLENBQUUsVUFBVSxDQUN2QixVQUFVLENBQUUsTUFBTSxDQUNsQixTQUFTLENBQUUsSUFBSSxDQUNmLFVBQVUsQ0FBRSxPQUFPLEFBQ3JCLENBQUMsQUFDRCxLQUFLLGVBQUMsQ0FBQyxBQUNMLElBQUksQ0FBRSxDQUFDLEFBQ1QsQ0FBQyxBQUNELE9BQU8sZUFBQyxDQUFDLEFBQ1AsUUFBUSxDQUFFLFFBQVEsQ0FDbEIsSUFBSSxDQUFFLENBQUMsQ0FDUCxXQUFXLENBQUUsUUFBUSxDQUNyQixVQUFVLENBQUUsS0FBSyxBQUNuQixDQUFDLEFBQ0QsSUFBSSxlQUFDLENBQUMsQUFDSixNQUFNLENBQUUsSUFBSSxDQUNaLFVBQVUsQ0FBRSxJQUFJLEFBQ2xCLENBQUMsQUFDRCxNQUFNLGVBQUMsQ0FBQyxBQUNOLFFBQVEsQ0FBRSxRQUFRLENBQ2xCLEdBQUcsQ0FBRSxJQUFJLENBQ1QsVUFBVSxDQUFFLFFBQVEsQ0FDcEIsS0FBSyxDQUFFLE9BQU8sQ0FDZCxTQUFTLENBQUUsSUFBSSxDQUNmLFlBQVksQ0FBRSxHQUFHLENBQ2pCLFdBQVcsQ0FBRSxJQUFJLENBQ2pCLFdBQVcsQ0FBRSxNQUFNLEFBQ3JCLENBQUMsQUFDRCxJQUFJLGVBQUMsQ0FBQyxBQUNKLFFBQVEsQ0FBRSxRQUFRLENBQ2xCLGFBQWEsQ0FBRSxHQUFHLENBQ2xCLFVBQVUsQ0FBRSxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQUFDaEQsQ0FBQyxBQUNELG1CQUFJLE1BQU0sQUFBQyxDQUFDLEFBQ1YsVUFBVSxDQUFFLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxTQUFTLEFBQ3ZDLENBQUMifQ== */";
+    	style.id = "svelte-1bbyntm-style";
+    	style.textContent = ".barchart.svelte-1bbyntm{position:relative;width:100%;display:flex;flex-direction:row;justify-content:space-around;align-items:flex-start;text-align:right;flex-wrap:nowrap;align-self:stretch}.col.svelte-1bbyntm{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:center;flex-wrap:wrap;align-self:stretch}.bars.svelte-1bbyntm{flex:1}.labels.svelte-1bbyntm{position:relative;flex:0;align-items:flex-end;text-align:right}.row.svelte-1bbyntm{height:20px;margin-top:5px;margin-bottom:5px}.label.svelte-1bbyntm{position:relative;top:-1px;align-self:flex-end;color:#a6a4a4;font-size:16px;margin-right:5px;margin-left:1rem;margin-right:1rem;white-space:nowrap}.bar.svelte-1bbyntm{position:relative;border-radius:2px;box-shadow:2px 2px 8px 0px rgba(0, 0, 0, 0.2)}.bar.svelte-1bbyntm:hover{box-shadow:2px 2px 8px 0px steelblue}.container.svelte-1bbyntm{width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.title.svelte-1bbyntm{position:relative;color:#949a9e;font-size:0.7rem;margin-bottom:0.3rem}.row-left.svelte-1bbyntm{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;text-align:center;flex-wrap:nowrap;align-self:stretch}.value.svelte-1bbyntm{color:#949a9e;opacity:0.5;font-size:0.5rem;margin-left:0.3rem}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSG9yaXpvbnRhbC5zdmVsdGUiLCJzb3VyY2VzIjpbIkhvcml6b250YWwuc3ZlbHRlIl0sInNvdXJjZXNDb250ZW50IjpbIjxzY3JpcHQ+XG4gIGltcG9ydCB7IHNldENvbnRleHQsIG9uTW91bnQgfSBmcm9tICdzdmVsdGUnXG4gIGltcG9ydCB7IGJhcnMgfSBmcm9tICcuL3N0b3JlJ1xuICBpbXBvcnQgbGF5b3V0IGZyb20gJy4vbGF5b3V0J1xuICBleHBvcnQgbGV0IGxhYmVsID0gJydcbiAgZXhwb3J0IGxldCBudW1iZXJzID0gZmFsc2VcblxuICBsZXQgYXJyID0gW11cbiAgb25Nb3VudCgoKSA9PiB7XG4gICAgYXJyID0gbGF5b3V0KCRiYXJzKVxuICB9KVxuPC9zY3JpcHQ+XG5cbjxzdHlsZT5cbiAgLmJhcmNoYXJ0IHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kO1xuICAgIGFsaWduLWl0ZW1zOiBmbGV4LXN0YXJ0O1xuICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuICAgIGZsZXgtd3JhcDogbm93cmFwO1xuICAgIGFsaWduLXNlbGY6IHN0cmV0Y2g7XG4gIH1cbiAgLmNvbCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGFsaWduLWl0ZW1zOiBmbGV4LXN0YXJ0O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgYWxpZ24tc2VsZjogc3RyZXRjaDtcbiAgfVxuICAuYmFycyB7XG4gICAgZmxleDogMTtcbiAgfVxuICAubGFiZWxzIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgZmxleDogMDtcbiAgICBhbGlnbi1pdGVtczogZmxleC1lbmQ7XG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gIH1cbiAgLnJvdyB7XG4gICAgaGVpZ2h0OiAyMHB4O1xuICAgIG1hcmdpbi10b3A6IDVweDtcbiAgICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIH1cbiAgLmxhYmVsIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgdG9wOiAtMXB4O1xuICAgIGFsaWduLXNlbGY6IGZsZXgtZW5kO1xuICAgIGNvbG9yOiAjYTZhNGE0O1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgICBtYXJnaW4tbGVmdDogMXJlbTtcbiAgICBtYXJnaW4tcmlnaHQ6IDFyZW07XG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgfVxuICAuYmFyIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgYm9yZGVyLXJhZGl1czogMnB4O1xuICAgIGJveC1zaGFkb3c6IDJweCAycHggOHB4IDBweCByZ2JhKDAsIDAsIDAsIDAuMik7XG4gIH1cbiAgLmJhcjpob3ZlciB7XG4gICAgYm94LXNoYWRvdzogMnB4IDJweCA4cHggMHB4IHN0ZWVsYmx1ZTtcbiAgfVxuICAuY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIH1cbiAgLnRpdGxlIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgY29sb3I6ICM5NDlhOWU7XG4gICAgZm9udC1zaXplOiAwLjdyZW07XG4gICAgbWFyZ2luLWJvdHRvbTogMC4zcmVtO1xuICB9XG4gIC5yb3ctbGVmdCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICAgIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmbGV4LXdyYXA6IG5vd3JhcDtcbiAgICBhbGlnbi1zZWxmOiBzdHJldGNoO1xuICB9XG4gIC52YWx1ZSB7XG4gICAgY29sb3I6ICM5NDlhOWU7XG4gICAgb3BhY2l0eTogMC41O1xuICAgIGZvbnQtc2l6ZTogMC41cmVtO1xuICAgIG1hcmdpbi1sZWZ0OiAwLjNyZW07XG4gIH1cbjwvc3R5bGU+XG5cbjxkaXYgY2xhc3M9XCJjb250YWluZXJcIj5cbiAgeyNpZiBsYWJlbH1cbiAgICA8ZGl2IGNsYXNzPVwidGl0bGVcIj57bGFiZWx9PC9kaXY+XG4gIHsvaWZ9XG4gIDxkaXYgY2xhc3M9XCJiYXJjaGFydFwiPlxuICAgIDwhLS0gbGFiZWxzIC0tPlxuICAgIDxkaXYgY2xhc3M9XCJjb2wgbGFiZWxzXCI+XG4gICAgICB7I2VhY2ggYXJyIGFzIGJhcn1cbiAgICAgICAgPGRpdiBjbGFzcz1cInJvdyBsYWJlbFwiIHN0eWxlPVwiY29sb3I6e2Jhci5jb2xvcn07XCI+XG4gICAgICAgICAge0BodG1sIGJhci5sYWJlbH1cbiAgICAgICAgPC9kaXY+XG4gICAgICB7L2VhY2h9XG4gICAgPC9kaXY+XG4gICAgPCEtLSBiYXJzIC0tPlxuICAgIDxkaXYgY2xhc3M9XCJjb2wgYmFyc1wiPlxuICAgICAgeyNlYWNoIGFyciBhcyBiYXJ9XG4gICAgICAgIDxkaXYgY2xhc3M9XCJyb3ctbGVmdFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJyb3cgYmFyXCIgc3R5bGU9XCJiYWNrZ3JvdW5kLWNvbG9yOntiYXIuY29sb3J9OyB3aWR0aDp7YmFyLnNpemV9JTtcIiAvPlxuICAgICAgICAgIHsjaWYgbnVtYmVyc31cbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJ2YWx1ZVwiPntiYXIudmFsdWV9PC9kaXY+XG4gICAgICAgICAgey9pZn1cbiAgICAgICAgPC9kaXY+XG4gICAgICB7L2VhY2h9XG4gICAgPC9kaXY+XG5cbiAgPC9kaXY+XG48L2Rpdj5cbjxzbG90IC8+XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBY0UsU0FBUyxlQUFDLENBQUMsQUFDVCxRQUFRLENBQUUsUUFBUSxDQUNsQixLQUFLLENBQUUsSUFBSSxDQUNYLE9BQU8sQ0FBRSxJQUFJLENBQ2IsY0FBYyxDQUFFLEdBQUcsQ0FDbkIsZUFBZSxDQUFFLFlBQVksQ0FDN0IsV0FBVyxDQUFFLFVBQVUsQ0FDdkIsVUFBVSxDQUFFLEtBQUssQ0FDakIsU0FBUyxDQUFFLE1BQU0sQ0FDakIsVUFBVSxDQUFFLE9BQU8sQUFDckIsQ0FBQyxBQUNELElBQUksZUFBQyxDQUFDLEFBQ0osT0FBTyxDQUFFLElBQUksQ0FDYixjQUFjLENBQUUsTUFBTSxDQUN0QixlQUFlLENBQUUsTUFBTSxDQUN2QixXQUFXLENBQUUsVUFBVSxDQUN2QixVQUFVLENBQUUsTUFBTSxDQUNsQixTQUFTLENBQUUsSUFBSSxDQUNmLFVBQVUsQ0FBRSxPQUFPLEFBQ3JCLENBQUMsQUFDRCxLQUFLLGVBQUMsQ0FBQyxBQUNMLElBQUksQ0FBRSxDQUFDLEFBQ1QsQ0FBQyxBQUNELE9BQU8sZUFBQyxDQUFDLEFBQ1AsUUFBUSxDQUFFLFFBQVEsQ0FDbEIsSUFBSSxDQUFFLENBQUMsQ0FDUCxXQUFXLENBQUUsUUFBUSxDQUNyQixVQUFVLENBQUUsS0FBSyxBQUNuQixDQUFDLEFBQ0QsSUFBSSxlQUFDLENBQUMsQUFDSixNQUFNLENBQUUsSUFBSSxDQUNaLFVBQVUsQ0FBRSxHQUFHLENBQ2YsYUFBYSxDQUFFLEdBQUcsQUFDcEIsQ0FBQyxBQUNELE1BQU0sZUFBQyxDQUFDLEFBQ04sUUFBUSxDQUFFLFFBQVEsQ0FDbEIsR0FBRyxDQUFFLElBQUksQ0FDVCxVQUFVLENBQUUsUUFBUSxDQUNwQixLQUFLLENBQUUsT0FBTyxDQUNkLFNBQVMsQ0FBRSxJQUFJLENBQ2YsWUFBWSxDQUFFLEdBQUcsQ0FDakIsV0FBVyxDQUFFLElBQUksQ0FDakIsWUFBWSxDQUFFLElBQUksQ0FDbEIsV0FBVyxDQUFFLE1BQU0sQUFDckIsQ0FBQyxBQUNELElBQUksZUFBQyxDQUFDLEFBQ0osUUFBUSxDQUFFLFFBQVEsQ0FDbEIsYUFBYSxDQUFFLEdBQUcsQ0FDbEIsVUFBVSxDQUFFLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxBQUNoRCxDQUFDLEFBQ0QsbUJBQUksTUFBTSxBQUFDLENBQUMsQUFDVixVQUFVLENBQUUsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLFNBQVMsQUFDdkMsQ0FBQyxBQUNELFVBQVUsZUFBQyxDQUFDLEFBQ1YsS0FBSyxDQUFFLElBQUksQ0FDWCxPQUFPLENBQUUsSUFBSSxDQUNiLGNBQWMsQ0FBRSxNQUFNLENBQ3RCLGVBQWUsQ0FBRSxNQUFNLENBQ3ZCLFdBQVcsQ0FBRSxNQUFNLENBQ25CLFVBQVUsQ0FBRSxNQUFNLEFBQ3BCLENBQUMsQUFDRCxNQUFNLGVBQUMsQ0FBQyxBQUNOLFFBQVEsQ0FBRSxRQUFRLENBQ2xCLEtBQUssQ0FBRSxPQUFPLENBQ2QsU0FBUyxDQUFFLE1BQU0sQ0FDakIsYUFBYSxDQUFFLE1BQU0sQUFDdkIsQ0FBQyxBQUNELFNBQVMsZUFBQyxDQUFDLEFBQ1QsT0FBTyxDQUFFLElBQUksQ0FDYixjQUFjLENBQUUsR0FBRyxDQUNuQixlQUFlLENBQUUsVUFBVSxDQUMzQixXQUFXLENBQUUsTUFBTSxDQUNuQixVQUFVLENBQUUsTUFBTSxDQUNsQixTQUFTLENBQUUsTUFBTSxDQUNqQixVQUFVLENBQUUsT0FBTyxBQUNyQixDQUFDLEFBQ0QsTUFBTSxlQUFDLENBQUMsQUFDTixLQUFLLENBQUUsT0FBTyxDQUNkLE9BQU8sQ0FBRSxHQUFHLENBQ1osU0FBUyxDQUFFLE1BQU0sQ0FDakIsV0FBVyxDQUFFLE1BQU0sQUFDckIsQ0FBQyJ9 */";
     	append_dev(document.head, style);
     }
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[4] = list[i];
+    	child_ctx[6] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[4] = list[i];
+    	child_ctx[6] = list[i];
     	return child_ctx;
     }
 
-    // (69:4) {#each arr as bar}
+    // (100:2) {#if label}
+    function create_if_block_1(ctx) {
+    	let div;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			t = text(/*label*/ ctx[0]);
+    			attr_dev(div, "class", "title svelte-1bbyntm");
+    			add_location(div, file, 100, 4, 1894);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*label*/ 1) set_data_dev(t, /*label*/ ctx[0]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1.name,
+    		type: "if",
+    		source: "(100:2) {#if label}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (106:6) {#each arr as bar}
     function create_each_block_1(ctx) {
     	let div;
     	let html_tag;
-    	let raw_value = /*bar*/ ctx[4].label + "";
+    	let raw_value = /*bar*/ ctx[6].label + "";
     	let t;
 
     	const block = {
@@ -567,8 +602,9 @@ var app = (function () {
     			div = element("div");
     			t = space();
     			html_tag = new HtmlTag(t);
-    			attr_dev(div, "class", "row label svelte-1i5k5y0");
-    			add_location(div, file, 69, 6, 1286);
+    			attr_dev(div, "class", "row label svelte-1bbyntm");
+    			set_style(div, "color", /*bar*/ ctx[6].color);
+    			add_location(div, file, 106, 8, 2042);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -576,7 +612,11 @@ var app = (function () {
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*arr*/ 1 && raw_value !== (raw_value = /*bar*/ ctx[4].label + "")) html_tag.p(raw_value);
+    			if (dirty & /*arr*/ 4 && raw_value !== (raw_value = /*bar*/ ctx[6].label + "")) html_tag.p(raw_value);
+
+    			if (dirty & /*arr*/ 4) {
+    				set_style(div, "color", /*bar*/ ctx[6].color);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
@@ -587,36 +627,32 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(69:4) {#each arr as bar}",
+    		source: "(106:6) {#each arr as bar}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:4) {#each arr as bar}
-    function create_each_block(ctx) {
+    // (117:10) {#if numbers}
+    function create_if_block(ctx) {
     	let div;
+    	let t_value = /*bar*/ ctx[6].value + "";
+    	let t;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "row bar svelte-1i5k5y0");
-    			set_style(div, "background-color", /*bar*/ ctx[4].color);
-    			set_style(div, "width", /*bar*/ ctx[4].size + "%");
-    			add_location(div, file, 77, 6, 1440);
+    			t = text(t_value);
+    			attr_dev(div, "class", "value svelte-1bbyntm");
+    			add_location(div, file, 117, 12, 2389);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
+    			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*arr*/ 1) {
-    				set_style(div, "background-color", /*bar*/ ctx[4].color);
-    			}
-
-    			if (dirty & /*arr*/ 1) {
-    				set_style(div, "width", /*bar*/ ctx[4].size + "%");
-    			}
+    			if (dirty & /*arr*/ 4 && t_value !== (t_value = /*bar*/ ctx[6].value + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
@@ -625,9 +661,77 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(117:10) {#if numbers}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (114:6) {#each arr as bar}
+    function create_each_block(ctx) {
+    	let div1;
+    	let div0;
+    	let t0;
+    	let t1;
+    	let if_block = /*numbers*/ ctx[1] && create_if_block(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			t0 = space();
+    			if (if_block) if_block.c();
+    			t1 = space();
+    			attr_dev(div0, "class", "row bar svelte-1bbyntm");
+    			set_style(div0, "background-color", /*bar*/ ctx[6].color);
+    			set_style(div0, "width", /*bar*/ ctx[6].size + "%");
+    			add_location(div0, file, 115, 10, 2272);
+    			attr_dev(div1, "class", "row-left svelte-1bbyntm");
+    			add_location(div1, file, 114, 8, 2239);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div1, t0);
+    			if (if_block) if_block.m(div1, null);
+    			append_dev(div1, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*arr*/ 4) {
+    				set_style(div0, "background-color", /*bar*/ ctx[6].color);
+    			}
+
+    			if (dirty & /*arr*/ 4) {
+    				set_style(div0, "width", /*bar*/ ctx[6].size + "%");
+    			}
+
+    			if (/*numbers*/ ctx[1]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block(ctx);
+    					if_block.c();
+    					if_block.m(div1, t1);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			if (if_block) if_block.d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(77:4) {#each arr as bar}",
+    		source: "(114:6) {#each arr as bar}",
     		ctx
     	});
 
@@ -635,13 +739,16 @@ var app = (function () {
     }
 
     function create_fragment(ctx) {
+    	let div3;
+    	let t0;
     	let div2;
     	let div0;
-    	let t0;
-    	let div1;
     	let t1;
+    	let div1;
+    	let t2;
     	let current;
-    	let each_value_1 = /*arr*/ ctx[0];
+    	let if_block = /*label*/ ctx[0] && create_if_block_1(ctx);
+    	let each_value_1 = /*arr*/ ctx[2];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
 
@@ -649,7 +756,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let each_value = /*arr*/ ctx[0];
+    	let each_value = /*arr*/ ctx[2];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -657,11 +764,14 @@ var app = (function () {
     		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
     	}
 
-    	const default_slot_template = /*$$slots*/ ctx[2].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[1], null);
+    	const default_slot_template = /*$$slots*/ ctx[4].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
 
     	const block = {
     		c: function create() {
+    			div3 = element("div");
+    			if (if_block) if_block.c();
+    			t0 = space();
     			div2 = element("div");
     			div0 = element("div");
 
@@ -669,41 +779,46 @@ var app = (function () {
     				each_blocks_1[i].c();
     			}
 
-    			t0 = space();
+    			t1 = space();
     			div1 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t1 = space();
+    			t2 = space();
     			if (default_slot) default_slot.c();
-    			attr_dev(div0, "class", "col labels svelte-1i5k5y0");
-    			add_location(div0, file, 67, 2, 1232);
-    			attr_dev(div1, "class", "col bars svelte-1i5k5y0");
-    			add_location(div1, file, 75, 2, 1388);
-    			attr_dev(div2, "class", "barchart svelte-1i5k5y0");
-    			add_location(div2, file, 65, 0, 1189);
+    			attr_dev(div0, "class", "col labels svelte-1bbyntm");
+    			add_location(div0, file, 104, 4, 1984);
+    			attr_dev(div1, "class", "col bars svelte-1bbyntm");
+    			add_location(div1, file, 112, 4, 2183);
+    			attr_dev(div2, "class", "barchart svelte-1bbyntm");
+    			add_location(div2, file, 102, 2, 1937);
+    			attr_dev(div3, "class", "container svelte-1bbyntm");
+    			add_location(div3, file, 98, 0, 1852);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div2, anchor);
+    			insert_dev(target, div3, anchor);
+    			if (if_block) if_block.m(div3, null);
+    			append_dev(div3, t0);
+    			append_dev(div3, div2);
     			append_dev(div2, div0);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
     				each_blocks_1[i].m(div0, null);
     			}
 
-    			append_dev(div2, t0);
+    			append_dev(div2, t1);
     			append_dev(div2, div1);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(div1, null);
     			}
 
-    			insert_dev(target, t1, anchor);
+    			insert_dev(target, t2, anchor);
 
     			if (default_slot) {
     				default_slot.m(target, anchor);
@@ -712,8 +827,21 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*arr*/ 1) {
-    				each_value_1 = /*arr*/ ctx[0];
+    			if (/*label*/ ctx[0]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_1(ctx);
+    					if_block.c();
+    					if_block.m(div3, t0);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (dirty & /*arr*/ 4) {
+    				each_value_1 = /*arr*/ ctx[2];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -736,8 +864,8 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty & /*arr*/ 1) {
-    				each_value = /*arr*/ ctx[0];
+    			if (dirty & /*arr, numbers*/ 6) {
+    				each_value = /*arr*/ ctx[2];
     				validate_each_argument(each_value);
     				let i;
 
@@ -761,8 +889,8 @@ var app = (function () {
     			}
 
     			if (default_slot) {
-    				if (default_slot.p && dirty & /*$$scope*/ 2) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[1], dirty, null, null);
+    				if (default_slot.p && dirty & /*$$scope*/ 8) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[3], dirty, null, null);
     				}
     			}
     		},
@@ -776,10 +904,11 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div2);
+    			if (detaching) detach_dev(div3);
+    			if (if_block) if_block.d();
     			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(t2);
     			if (default_slot) default_slot.d(detaching);
     		}
     	};
@@ -798,14 +927,16 @@ var app = (function () {
     function instance($$self, $$props, $$invalidate) {
     	let $bars;
     	validate_store(bars, "bars");
-    	component_subscribe($$self, bars, $$value => $$invalidate(3, $bars = $$value));
+    	component_subscribe($$self, bars, $$value => $$invalidate(5, $bars = $$value));
+    	let { label = "" } = $$props;
+    	let { numbers = false } = $$props;
     	let arr = [];
 
     	onMount(() => {
-    		$$invalidate(0, arr = layout($bars));
+    		$$invalidate(2, arr = layout($bars));
     	});
 
-    	const writable_props = [];
+    	const writable_props = ["label", "numbers"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Horizontal> was created with unknown prop '${key}'`);
@@ -815,7 +946,9 @@ var app = (function () {
     	validate_slots("Horizontal", $$slots, ['default']);
 
     	$$self.$$set = $$props => {
-    		if ("$$scope" in $$props) $$invalidate(1, $$scope = $$props.$$scope);
+    		if ("label" in $$props) $$invalidate(0, label = $$props.label);
+    		if ("numbers" in $$props) $$invalidate(1, numbers = $$props.numbers);
+    		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
     	};
 
     	$$self.$capture_state = () => ({
@@ -823,26 +956,30 @@ var app = (function () {
     		onMount,
     		bars,
     		layout,
+    		label,
+    		numbers,
     		arr,
     		$bars
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("arr" in $$props) $$invalidate(0, arr = $$props.arr);
+    		if ("label" in $$props) $$invalidate(0, label = $$props.label);
+    		if ("numbers" in $$props) $$invalidate(1, numbers = $$props.numbers);
+    		if ("arr" in $$props) $$invalidate(2, arr = $$props.arr);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [arr, $$scope, $$slots];
+    	return [label, numbers, arr, $$scope, $$slots];
     }
 
     class Horizontal extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		if (!document.getElementById("svelte-1i5k5y0-style")) add_css();
-    		init(this, options, instance, create_fragment, safe_not_equal, {});
+    		if (!document.getElementById("svelte-1bbyntm-style")) add_css();
+    		init(this, options, instance, create_fragment, safe_not_equal, { label: 0, numbers: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -851,6 +988,22 @@ var app = (function () {
     			id: create_fragment.name
     		});
     	}
+
+    	get label() {
+    		throw new Error("<Horizontal>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set label(value) {
+    		throw new Error("<Horizontal>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get numbers() {
+    		throw new Error("<Horizontal>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set numbers(value) {
+    		throw new Error("<Horizontal>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
     }
 
     /* src/Vertical.svelte generated by Svelte v3.24.1 */
@@ -858,65 +1011,161 @@ var app = (function () {
 
     function add_css$1() {
     	var style = element("style");
-    	style.id = "svelte-1qqel5i-style";
-    	style.textContent = ".barchart.svelte-1qqel5i{position:relative;width:100%;display:flex;flex-direction:row;justify-content:flex-start;align-items:flex-start;text-align:right;flex-wrap:nowrap;align-self:stretch;min-height:50px}.item.svelte-1qqel5i{display:flex;flex:1;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;flex-wrap:nowrap;flex-grow:1;align-self:stretch;margin:5px}.label.svelte-1qqel5i{color:#a6a4a4;min-height:20px;max-height:20px;font-size:16px;width:100%;flex:1;margin-top:0.5rem;text-align:center}.bar.svelte-1qqel5i{align-self:center;min-width:20px;width:100%;margin-top:10px;border-radius:2px;box-shadow:2px 2px 8px 0px rgba(0, 0, 0, 0.2)}.bar.svelte-1qqel5i:hover{box-shadow:2px 2px 8px 0px steelblue}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVmVydGljYWwuc3ZlbHRlIiwic291cmNlcyI6WyJWZXJ0aWNhbC5zdmVsdGUiXSwic291cmNlc0NvbnRlbnQiOlsiPHNjcmlwdD5cbiAgaW1wb3J0IHsgc2V0Q29udGV4dCwgb25Nb3VudCB9IGZyb20gJ3N2ZWx0ZSdcbiAgaW1wb3J0IHsgYmFycyB9IGZyb20gJy4vc3RvcmUnXG4gIGltcG9ydCBsYXlvdXQgZnJvbSAnLi9sYXlvdXQnXG5cbiAgbGV0IGFyciA9IFtdXG4gIG9uTW91bnQoKCkgPT4ge1xuICAgIGFyciA9IGxheW91dCgkYmFycylcbiAgfSlcbjwvc2NyaXB0PlxuXG48c3R5bGU+XG4gIC5iYXJjaGFydCB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7XG4gICAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gICAgZmxleC13cmFwOiBub3dyYXA7XG4gICAgYWxpZ24tc2VsZjogc3RyZXRjaDtcbiAgICBtaW4taGVpZ2h0OiA1MHB4O1xuICB9XG4gIC5pdGVtIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXg6IDE7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGZsZXgtd3JhcDogbm93cmFwO1xuICAgIGZsZXgtZ3JvdzogMTtcbiAgICBhbGlnbi1zZWxmOiBzdHJldGNoO1xuICAgIG1hcmdpbjogNXB4O1xuICB9XG4gIC5sYWJlbCB7XG4gICAgY29sb3I6ICNhNmE0YTQ7XG4gICAgbWluLWhlaWdodDogMjBweDtcbiAgICBtYXgtaGVpZ2h0OiAyMHB4O1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBmbGV4OiAxO1xuICAgIG1hcmdpbi10b3A6IDAuNXJlbTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIH1cbiAgLmJhciB7XG4gICAgYWxpZ24tc2VsZjogY2VudGVyO1xuICAgIG1pbi13aWR0aDogMjBweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDJweDtcbiAgICBib3gtc2hhZG93OiAycHggMnB4IDhweCAwcHggcmdiYSgwLCAwLCAwLCAwLjIpO1xuICB9XG4gIC5iYXI6aG92ZXIge1xuICAgIGJveC1zaGFkb3c6IDJweCAycHggOHB4IDBweCBzdGVlbGJsdWU7XG4gIH1cbjwvc3R5bGU+XG5cbjxkaXYgY2xhc3M9XCJiYXJjaGFydFwiIHN0eWxlPVwid2lkdGg6MTAwJTsgaGVpZ2h0OjEwMCU7XCI+XG4gIHsjZWFjaCBhcnIgYXMgYmFyfVxuICAgIDxkaXYgY2xhc3M9XCJpdGVtXCI+XG4gICAgICA8ZGl2IGNsYXNzPVwiYmFyXCIgc3R5bGU9XCJiYWNrZ3JvdW5kLWNvbG9yOntiYXIuY29sb3J9OyBoZWlnaHQ6e2Jhci5zaXplfSU7XCIgLz5cbiAgICAgIDxkaXYgY2xhc3M9XCJsYWJlbFwiPntiYXIubGFiZWwgfHwgJyd9PC9kaXY+XG4gICAgPC9kaXY+XG4gIHsvZWFjaH1cbjwvZGl2PlxuPHNsb3QgLz5cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFZRSxTQUFTLGVBQUMsQ0FBQyxBQUNULFFBQVEsQ0FBRSxRQUFRLENBQ2xCLEtBQUssQ0FBRSxJQUFJLENBQ1gsT0FBTyxDQUFFLElBQUksQ0FDYixjQUFjLENBQUUsR0FBRyxDQUNuQixlQUFlLENBQUUsVUFBVSxDQUMzQixXQUFXLENBQUUsVUFBVSxDQUN2QixVQUFVLENBQUUsS0FBSyxDQUNqQixTQUFTLENBQUUsTUFBTSxDQUNqQixVQUFVLENBQUUsT0FBTyxDQUNuQixVQUFVLENBQUUsSUFBSSxBQUNsQixDQUFDLEFBQ0QsS0FBSyxlQUFDLENBQUMsQUFDTCxPQUFPLENBQUUsSUFBSSxDQUNiLElBQUksQ0FBRSxDQUFDLENBQ1AsY0FBYyxDQUFFLE1BQU0sQ0FDdEIsZUFBZSxDQUFFLFFBQVEsQ0FDekIsV0FBVyxDQUFFLE1BQU0sQ0FDbkIsVUFBVSxDQUFFLE1BQU0sQ0FDbEIsU0FBUyxDQUFFLE1BQU0sQ0FDakIsU0FBUyxDQUFFLENBQUMsQ0FDWixVQUFVLENBQUUsT0FBTyxDQUNuQixNQUFNLENBQUUsR0FBRyxBQUNiLENBQUMsQUFDRCxNQUFNLGVBQUMsQ0FBQyxBQUNOLEtBQUssQ0FBRSxPQUFPLENBQ2QsVUFBVSxDQUFFLElBQUksQ0FDaEIsVUFBVSxDQUFFLElBQUksQ0FDaEIsU0FBUyxDQUFFLElBQUksQ0FDZixLQUFLLENBQUUsSUFBSSxDQUNYLElBQUksQ0FBRSxDQUFDLENBQ1AsVUFBVSxDQUFFLE1BQU0sQ0FDbEIsVUFBVSxDQUFFLE1BQU0sQUFDcEIsQ0FBQyxBQUNELElBQUksZUFBQyxDQUFDLEFBQ0osVUFBVSxDQUFFLE1BQU0sQ0FDbEIsU0FBUyxDQUFFLElBQUksQ0FDZixLQUFLLENBQUUsSUFBSSxDQUNYLFVBQVUsQ0FBRSxJQUFJLENBQ2hCLGFBQWEsQ0FBRSxHQUFHLENBQ2xCLFVBQVUsQ0FBRSxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQUFDaEQsQ0FBQyxBQUNELG1CQUFJLE1BQU0sQUFBQyxDQUFDLEFBQ1YsVUFBVSxDQUFFLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxTQUFTLEFBQ3ZDLENBQUMifQ== */";
+    	style.id = "svelte-es4tff-style";
+    	style.textContent = ".barchart.svelte-es4tff{position:relative;width:100%;display:flex;flex-direction:row;justify-content:flex-start;align-items:flex-start;text-align:right;flex-wrap:nowrap;align-self:stretch;min-height:50px}.item.svelte-es4tff{display:flex;flex:1;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;flex-wrap:nowrap;flex-grow:1;align-self:stretch;margin:5px}.label.svelte-es4tff{color:#a6a4a4;min-height:20px;max-height:20px;font-size:16px;width:100%;flex:1;margin-top:0.5rem;text-align:center}.bar.svelte-es4tff{align-self:center;min-width:20px;width:100%;margin-top:5px;border-radius:2px;box-shadow:2px 2px 8px 0px rgba(0, 0, 0, 0.2)}.bar.svelte-es4tff:hover{box-shadow:2px 2px 8px 0px steelblue}.container.svelte-es4tff{height:100%;width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.title.svelte-es4tff{position:relative;color:#949a9e;font-size:0.7rem;margin-bottom:0.3rem}.value.svelte-es4tff{color:#949a9e;opacity:0.5;font-size:0.5rem}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVmVydGljYWwuc3ZlbHRlIiwic291cmNlcyI6WyJWZXJ0aWNhbC5zdmVsdGUiXSwic291cmNlc0NvbnRlbnQiOlsiPHNjcmlwdD5cbiAgaW1wb3J0IHsgc2V0Q29udGV4dCwgb25Nb3VudCB9IGZyb20gJ3N2ZWx0ZSdcbiAgaW1wb3J0IHsgYmFycyB9IGZyb20gJy4vc3RvcmUnXG4gIGltcG9ydCBsYXlvdXQgZnJvbSAnLi9sYXlvdXQnXG4gIGV4cG9ydCBsZXQgbGFiZWwgPSAnJ1xuICBleHBvcnQgbGV0IG51bWJlcnMgPSBmYWxzZVxuXG4gIGxldCBhcnIgPSBbXVxuICBvbk1vdW50KCgpID0+IHtcbiAgICBhcnIgPSBsYXlvdXQoJGJhcnMpXG4gIH0pXG48L3NjcmlwdD5cblxuPHN0eWxlPlxuICAuYmFyY2hhcnQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0O1xuICAgIGFsaWduLWl0ZW1zOiBmbGV4LXN0YXJ0O1xuICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuICAgIGZsZXgtd3JhcDogbm93cmFwO1xuICAgIGFsaWduLXNlbGY6IHN0cmV0Y2g7XG4gICAgbWluLWhlaWdodDogNTBweDtcbiAgfVxuICAuaXRlbSB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4OiAxO1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmbGV4LXdyYXA6IG5vd3JhcDtcbiAgICBmbGV4LWdyb3c6IDE7XG4gICAgYWxpZ24tc2VsZjogc3RyZXRjaDtcbiAgICBtYXJnaW46IDVweDtcbiAgfVxuICAubGFiZWwge1xuICAgIGNvbG9yOiAjYTZhNGE0O1xuICAgIG1pbi1oZWlnaHQ6IDIwcHg7XG4gICAgbWF4LWhlaWdodDogMjBweDtcbiAgICBmb250LXNpemU6IDE2cHg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgZmxleDogMTtcbiAgICBtYXJnaW4tdG9wOiAwLjVyZW07XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB9XG4gIC5iYXIge1xuICAgIGFsaWduLXNlbGY6IGNlbnRlcjtcbiAgICBtaW4td2lkdGg6IDIwcHg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgbWFyZ2luLXRvcDogNXB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDJweDtcbiAgICBib3gtc2hhZG93OiAycHggMnB4IDhweCAwcHggcmdiYSgwLCAwLCAwLCAwLjIpO1xuICB9XG4gIC5iYXI6aG92ZXIge1xuICAgIGJveC1zaGFkb3c6IDJweCAycHggOHB4IDBweCBzdGVlbGJsdWU7XG4gIH1cbiAgLmNvbnRhaW5lciB7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxuICAudGl0bGUge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBjb2xvcjogIzk0OWE5ZTtcbiAgICBmb250LXNpemU6IDAuN3JlbTtcbiAgICBtYXJnaW4tYm90dG9tOiAwLjNyZW07XG4gIH1cbiAgLnZhbHVlIHtcbiAgICBjb2xvcjogIzk0OWE5ZTtcbiAgICBvcGFjaXR5OiAwLjU7XG4gICAgZm9udC1zaXplOiAwLjVyZW07XG4gIH1cbjwvc3R5bGU+XG5cbjxkaXYgY2xhc3M9XCJjb250YWluZXJcIj5cbiAgeyNpZiBsYWJlbH1cbiAgICA8ZGl2IGNsYXNzPVwidGl0bGVcIj57bGFiZWx9PC9kaXY+XG4gIHsvaWZ9XG4gIDxkaXYgY2xhc3M9XCJiYXJjaGFydFwiIHN0eWxlPVwid2lkdGg6MTAwJTsgaGVpZ2h0OjEwMCU7XCI+XG4gICAgeyNlYWNoIGFyciBhcyBiYXJ9XG4gICAgICA8ZGl2IGNsYXNzPVwiaXRlbVwiPlxuICAgICAgICB7I2lmIG51bWJlcnN9XG4gICAgICAgICAgPGRpdiBjbGFzcz1cInZhbHVlXCI+e2Jhci52YWx1ZX08L2Rpdj5cbiAgICAgICAgey9pZn1cbiAgICAgICAgPGRpdiBjbGFzcz1cImJhclwiIHN0eWxlPVwiYmFja2dyb3VuZC1jb2xvcjp7YmFyLmNvbG9yfTsgaGVpZ2h0OntiYXIuc2l6ZX0lO1wiIC8+XG4gICAgICAgIDxkaXYgY2xhc3M9XCJsYWJlbFwiIHN0eWxlPVwiY29sb3I6e2Jhci5jb2xvcn07XCI+e2Jhci5sYWJlbCB8fCAnJ308L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIHsvZWFjaH1cbiAgPC9kaXY+XG48L2Rpdj5cbjxzbG90IC8+XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBY0UsU0FBUyxjQUFDLENBQUMsQUFDVCxRQUFRLENBQUUsUUFBUSxDQUNsQixLQUFLLENBQUUsSUFBSSxDQUNYLE9BQU8sQ0FBRSxJQUFJLENBQ2IsY0FBYyxDQUFFLEdBQUcsQ0FDbkIsZUFBZSxDQUFFLFVBQVUsQ0FDM0IsV0FBVyxDQUFFLFVBQVUsQ0FDdkIsVUFBVSxDQUFFLEtBQUssQ0FDakIsU0FBUyxDQUFFLE1BQU0sQ0FDakIsVUFBVSxDQUFFLE9BQU8sQ0FDbkIsVUFBVSxDQUFFLElBQUksQUFDbEIsQ0FBQyxBQUNELEtBQUssY0FBQyxDQUFDLEFBQ0wsT0FBTyxDQUFFLElBQUksQ0FDYixJQUFJLENBQUUsQ0FBQyxDQUNQLGNBQWMsQ0FBRSxNQUFNLENBQ3RCLGVBQWUsQ0FBRSxRQUFRLENBQ3pCLFdBQVcsQ0FBRSxNQUFNLENBQ25CLFVBQVUsQ0FBRSxNQUFNLENBQ2xCLFNBQVMsQ0FBRSxNQUFNLENBQ2pCLFNBQVMsQ0FBRSxDQUFDLENBQ1osVUFBVSxDQUFFLE9BQU8sQ0FDbkIsTUFBTSxDQUFFLEdBQUcsQUFDYixDQUFDLEFBQ0QsTUFBTSxjQUFDLENBQUMsQUFDTixLQUFLLENBQUUsT0FBTyxDQUNkLFVBQVUsQ0FBRSxJQUFJLENBQ2hCLFVBQVUsQ0FBRSxJQUFJLENBQ2hCLFNBQVMsQ0FBRSxJQUFJLENBQ2YsS0FBSyxDQUFFLElBQUksQ0FDWCxJQUFJLENBQUUsQ0FBQyxDQUNQLFVBQVUsQ0FBRSxNQUFNLENBQ2xCLFVBQVUsQ0FBRSxNQUFNLEFBQ3BCLENBQUMsQUFDRCxJQUFJLGNBQUMsQ0FBQyxBQUNKLFVBQVUsQ0FBRSxNQUFNLENBQ2xCLFNBQVMsQ0FBRSxJQUFJLENBQ2YsS0FBSyxDQUFFLElBQUksQ0FDWCxVQUFVLENBQUUsR0FBRyxDQUNmLGFBQWEsQ0FBRSxHQUFHLENBQ2xCLFVBQVUsQ0FBRSxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQUFDaEQsQ0FBQyxBQUNELGtCQUFJLE1BQU0sQUFBQyxDQUFDLEFBQ1YsVUFBVSxDQUFFLEdBQUcsQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxTQUFTLEFBQ3ZDLENBQUMsQUFDRCxVQUFVLGNBQUMsQ0FBQyxBQUNWLE1BQU0sQ0FBRSxJQUFJLENBQ1osS0FBSyxDQUFFLElBQUksQ0FDWCxPQUFPLENBQUUsSUFBSSxDQUNiLGNBQWMsQ0FBRSxNQUFNLENBQ3RCLGVBQWUsQ0FBRSxNQUFNLENBQ3ZCLFdBQVcsQ0FBRSxNQUFNLENBQ25CLFVBQVUsQ0FBRSxNQUFNLEFBQ3BCLENBQUMsQUFDRCxNQUFNLGNBQUMsQ0FBQyxBQUNOLFFBQVEsQ0FBRSxRQUFRLENBQ2xCLEtBQUssQ0FBRSxPQUFPLENBQ2QsU0FBUyxDQUFFLE1BQU0sQ0FDakIsYUFBYSxDQUFFLE1BQU0sQUFDdkIsQ0FBQyxBQUNELE1BQU0sY0FBQyxDQUFDLEFBQ04sS0FBSyxDQUFFLE9BQU8sQ0FDZCxPQUFPLENBQUUsR0FBRyxDQUNaLFNBQVMsQ0FBRSxNQUFNLEFBQ25CLENBQUMifQ== */";
     	append_dev(document.head, style);
     }
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[4] = list[i];
+    	child_ctx[6] = list[i];
     	return child_ctx;
     }
 
-    // (61:2) {#each arr as bar}
+    // (83:2) {#if label}
+    function create_if_block_1$1(ctx) {
+    	let div;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			t = text(/*label*/ ctx[0]);
+    			attr_dev(div, "class", "title svelte-es4tff");
+    			add_location(div, file$1, 83, 4, 1579);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*label*/ 1) set_data_dev(t, /*label*/ ctx[0]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(83:2) {#if label}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (89:8) {#if numbers}
+    function create_if_block$1(ctx) {
+    	let div;
+    	let t_value = /*bar*/ ctx[6].value + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			t = text(t_value);
+    			attr_dev(div, "class", "value svelte-es4tff");
+    			add_location(div, file$1, 89, 10, 1758);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*arr*/ 4 && t_value !== (t_value = /*bar*/ ctx[6].value + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(89:8) {#if numbers}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (87:4) {#each arr as bar}
     function create_each_block$1(ctx) {
     	let div2;
-    	let div0;
     	let t0;
-    	let div1;
-    	let t1_value = (/*bar*/ ctx[4].label || "") + "";
+    	let div0;
     	let t1;
+    	let div1;
+    	let t2_value = (/*bar*/ ctx[6].label || "") + "";
     	let t2;
+    	let t3;
+    	let if_block = /*numbers*/ ctx[1] && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
     			div2 = element("div");
-    			div0 = element("div");
+    			if (if_block) if_block.c();
     			t0 = space();
+    			div0 = element("div");
+    			t1 = space();
     			div1 = element("div");
-    			t1 = text(t1_value);
-    			t2 = space();
-    			attr_dev(div0, "class", "bar svelte-1qqel5i");
-    			set_style(div0, "background-color", /*bar*/ ctx[4].color);
-    			set_style(div0, "height", /*bar*/ ctx[4].size + "%");
-    			add_location(div0, file$1, 62, 6, 1227);
-    			attr_dev(div1, "class", "label svelte-1qqel5i");
-    			add_location(div1, file$1, 63, 6, 1311);
-    			attr_dev(div2, "class", "item svelte-1qqel5i");
-    			add_location(div2, file$1, 61, 4, 1202);
+    			t2 = text(t2_value);
+    			t3 = space();
+    			attr_dev(div0, "class", "bar svelte-es4tff");
+    			set_style(div0, "background-color", /*bar*/ ctx[6].color);
+    			set_style(div0, "height", /*bar*/ ctx[6].size + "%");
+    			add_location(div0, file$1, 91, 8, 1817);
+    			attr_dev(div1, "class", "label svelte-es4tff");
+    			set_style(div1, "color", /*bar*/ ctx[6].color);
+    			add_location(div1, file$1, 92, 8, 1903);
+    			attr_dev(div2, "class", "item svelte-es4tff");
+    			add_location(div2, file$1, 87, 6, 1707);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
-    			append_dev(div2, div0);
+    			if (if_block) if_block.m(div2, null);
     			append_dev(div2, t0);
+    			append_dev(div2, div0);
+    			append_dev(div2, t1);
     			append_dev(div2, div1);
-    			append_dev(div1, t1);
-    			append_dev(div2, t2);
+    			append_dev(div1, t2);
+    			append_dev(div2, t3);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*arr*/ 1) {
-    				set_style(div0, "background-color", /*bar*/ ctx[4].color);
+    			if (/*numbers*/ ctx[1]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					if_block.m(div2, t0);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
     			}
 
-    			if (dirty & /*arr*/ 1) {
-    				set_style(div0, "height", /*bar*/ ctx[4].size + "%");
+    			if (dirty & /*arr*/ 4) {
+    				set_style(div0, "background-color", /*bar*/ ctx[6].color);
     			}
 
-    			if (dirty & /*arr*/ 1 && t1_value !== (t1_value = (/*bar*/ ctx[4].label || "") + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*arr*/ 4) {
+    				set_style(div0, "height", /*bar*/ ctx[6].size + "%");
+    			}
+
+    			if (dirty & /*arr*/ 4 && t2_value !== (t2_value = (/*bar*/ ctx[6].label || "") + "")) set_data_dev(t2, t2_value);
+
+    			if (dirty & /*arr*/ 4) {
+    				set_style(div1, "color", /*bar*/ ctx[6].color);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div2);
+    			if (if_block) if_block.d();
     		}
     	};
 
@@ -924,7 +1173,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(61:2) {#each arr as bar}",
+    		source: "(87:4) {#each arr as bar}",
     		ctx
     	});
 
@@ -932,10 +1181,13 @@ var app = (function () {
     }
 
     function create_fragment$1(ctx) {
-    	let div;
-    	let t;
+    	let div1;
+    	let t0;
+    	let div0;
+    	let t1;
     	let current;
-    	let each_value = /*arr*/ ctx[0];
+    	let if_block = /*label*/ ctx[0] && create_if_block_1$1(ctx);
+    	let each_value = /*arr*/ ctx[2];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -943,35 +1195,43 @@ var app = (function () {
     		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
     	}
 
-    	const default_slot_template = /*$$slots*/ ctx[2].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[1], null);
+    	const default_slot_template = /*$$slots*/ ctx[4].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div1 = element("div");
+    			if (if_block) if_block.c();
+    			t0 = space();
+    			div0 = element("div");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t = space();
+    			t1 = space();
     			if (default_slot) default_slot.c();
-    			attr_dev(div, "class", "barchart svelte-1qqel5i");
-    			set_style(div, "width", "100%");
-    			set_style(div, "height", "100%");
-    			add_location(div, file$1, 59, 0, 1121);
+    			attr_dev(div0, "class", "barchart svelte-es4tff");
+    			set_style(div0, "width", "100%");
+    			set_style(div0, "height", "100%");
+    			add_location(div0, file$1, 85, 2, 1622);
+    			attr_dev(div1, "class", "container svelte-es4tff");
+    			add_location(div1, file$1, 81, 0, 1537);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
+    			insert_dev(target, div1, anchor);
+    			if (if_block) if_block.m(div1, null);
+    			append_dev(div1, t0);
+    			append_dev(div1, div0);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div, null);
+    				each_blocks[i].m(div0, null);
     			}
 
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, t1, anchor);
 
     			if (default_slot) {
     				default_slot.m(target, anchor);
@@ -980,8 +1240,21 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*arr*/ 1) {
-    				each_value = /*arr*/ ctx[0];
+    			if (/*label*/ ctx[0]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_1$1(ctx);
+    					if_block.c();
+    					if_block.m(div1, t0);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (dirty & /*arr, numbers*/ 6) {
+    				each_value = /*arr*/ ctx[2];
     				validate_each_argument(each_value);
     				let i;
 
@@ -993,7 +1266,7 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(div, null);
+    						each_blocks[i].m(div0, null);
     					}
     				}
 
@@ -1005,8 +1278,8 @@ var app = (function () {
     			}
 
     			if (default_slot) {
-    				if (default_slot.p && dirty & /*$$scope*/ 2) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[1], dirty, null, null);
+    				if (default_slot.p && dirty & /*$$scope*/ 8) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[3], dirty, null, null);
     				}
     			}
     		},
@@ -1020,9 +1293,10 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div1);
+    			if (if_block) if_block.d();
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(t1);
     			if (default_slot) default_slot.d(detaching);
     		}
     	};
@@ -1041,14 +1315,16 @@ var app = (function () {
     function instance$1($$self, $$props, $$invalidate) {
     	let $bars;
     	validate_store(bars, "bars");
-    	component_subscribe($$self, bars, $$value => $$invalidate(3, $bars = $$value));
+    	component_subscribe($$self, bars, $$value => $$invalidate(5, $bars = $$value));
+    	let { label = "" } = $$props;
+    	let { numbers = false } = $$props;
     	let arr = [];
 
     	onMount(() => {
-    		$$invalidate(0, arr = layout($bars));
+    		$$invalidate(2, arr = layout($bars));
     	});
 
-    	const writable_props = [];
+    	const writable_props = ["label", "numbers"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Vertical> was created with unknown prop '${key}'`);
@@ -1058,7 +1334,9 @@ var app = (function () {
     	validate_slots("Vertical", $$slots, ['default']);
 
     	$$self.$$set = $$props => {
-    		if ("$$scope" in $$props) $$invalidate(1, $$scope = $$props.$$scope);
+    		if ("label" in $$props) $$invalidate(0, label = $$props.label);
+    		if ("numbers" in $$props) $$invalidate(1, numbers = $$props.numbers);
+    		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
     	};
 
     	$$self.$capture_state = () => ({
@@ -1066,26 +1344,30 @@ var app = (function () {
     		onMount,
     		bars,
     		layout,
+    		label,
+    		numbers,
     		arr,
     		$bars
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("arr" in $$props) $$invalidate(0, arr = $$props.arr);
+    		if ("label" in $$props) $$invalidate(0, label = $$props.label);
+    		if ("numbers" in $$props) $$invalidate(1, numbers = $$props.numbers);
+    		if ("arr" in $$props) $$invalidate(2, arr = $$props.arr);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [arr, $$scope, $$slots];
+    	return [label, numbers, arr, $$scope, $$slots];
     }
 
     class Vertical extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		if (!document.getElementById("svelte-1qqel5i-style")) add_css$1();
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+    		if (!document.getElementById("svelte-es4tff-style")) add_css$1();
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { label: 0, numbers: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -1093,6 +1375,22 @@ var app = (function () {
     			options,
     			id: create_fragment$1.name
     		});
+    	}
+
+    	get label() {
+    		throw new Error("<Vertical>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set label(value) {
+    		throw new Error("<Vertical>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get numbers() {
+    		throw new Error("<Vertical>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set numbers(value) {
+    		throw new Error("<Vertical>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
@@ -1240,109 +1538,79 @@ var app = (function () {
     /* Demo.svelte generated by Svelte v3.24.1 */
     const file$3 = "Demo.svelte";
 
-    // (16:4) <Horizontal>
-    function create_default_slot_1(ctx) {
-    	let bar0;
-    	let t0;
-    	let bar1;
-    	let t1;
-    	let bar2;
-    	let current;
-
-    	bar0 = new Bar({
-    			props: { color: "blue", value: "19" },
-    			$$inline: true
-    		});
-
-    	bar1 = new Bar({
-    			props: { color: "red", value: "5", label: "red" },
-    			$$inline: true
-    		});
-
-    	bar2 = new Bar({
-    			props: {
-    				color: "green",
-    				value: "10",
-    				label: "green label"
-    			},
-    			$$inline: true
-    		});
-
-    	const block = {
-    		c: function create() {
-    			create_component(bar0.$$.fragment);
-    			t0 = space();
-    			create_component(bar1.$$.fragment);
-    			t1 = space();
-    			create_component(bar2.$$.fragment);
-    		},
-    		m: function mount(target, anchor) {
-    			mount_component(bar0, target, anchor);
-    			insert_dev(target, t0, anchor);
-    			mount_component(bar1, target, anchor);
-    			insert_dev(target, t1, anchor);
-    			mount_component(bar2, target, anchor);
-    			current = true;
-    		},
-    		p: noop,
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(bar0.$$.fragment, local);
-    			transition_in(bar1.$$.fragment, local);
-    			transition_in(bar2.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(bar0.$$.fragment, local);
-    			transition_out(bar1.$$.fragment, local);
-    			transition_out(bar2.$$.fragment, local);
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			destroy_component(bar0, detaching);
-    			if (detaching) detach_dev(t0);
-    			destroy_component(bar1, detaching);
-    			if (detaching) detach_dev(t1);
-    			destroy_component(bar2, detaching);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_1.name,
-    		type: "slot",
-    		source: "(16:4) <Horizontal>",
-    		ctx
-    	});
-
-    	return block;
+    function add_css$2() {
+    	var style = element("style");
+    	style.id = "svelte-hk15c8-style";
+    	style.textContent = ".m4.svelte-hk15c8{margin-top:6rem}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRGVtby5zdmVsdGUiLCJzb3VyY2VzIjpbIkRlbW8uc3ZlbHRlIl0sInNvdXJjZXNDb250ZW50IjpbIjxzY3JpcHQ+XG4gIGltcG9ydCB7IEhvcml6b250YWwsIFZlcnRpY2FsLCBCYXIgfSBmcm9tICcuL3NyYydcbjwvc2NyaXB0PlxuXG48c3R5bGU+XG4gIC5tNCB7XG4gICAgbWFyZ2luLXRvcDogNnJlbTtcbiAgICAvKiB3aWR0aDogNTAlOyAqL1xuICB9XG48L3N0eWxlPlxuXG48ZGl2IGNsYXNzPVwibWFpbiBtNFwiPlxuICA8aDI+c29tZWhvdy1iYXJjaGFydDwvaDI+XG4gIDxkaXY+XG4gICAgYSBzdmVsdGUgYmFyY2hhcnQgY29tcG9uZW50IC1cbiAgICA8YSBocmVmPVwiaHR0cHM6Ly9naXRodWIuY29tL3NwZW5jZXJtb3VudGFpbi9zb21laG93LWJhcmNoYXJ0XCIgY2xhc3M9XCJtNFwiPmdpdGh1YjwvYT5cbiAgPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJtNFwiPlxuICAgIDxIb3Jpem9udGFsIGxhYmVsPVwiYnVpbGQgc2l6ZVwiPlxuICAgICAgPEJhciBjb2xvcj1cImxpZ2h0Ymx1ZVwiIGxhYmVsPVwianF1ZXJ5XCIgdmFsdWU9XCI4NFwiIC8+XG4gICAgICA8QmFyIGNvbG9yPVwibGlnaHRibHVlXCIgbGFiZWw9XCJyZWFjdFwiIHZhbHVlPVwiMTQwXCIgLz5cbiAgICAgIDxCYXIgY29sb3I9XCJvcmFuZ2VcIiBsYWJlbD1cImNvbXByb21pc2VcIiB2YWx1ZT1cIjE3MFwiIC8+XG4gICAgICA8QmFyIGNvbG9yPVwibGlnaHRibHVlXCIgbGFiZWw9XCJkM1wiIHZhbHVlPVwiMjMwXCIgLz5cbiAgICAgIDxCYXIgY29sb3I9XCJsaWdodGJsdWVcIiBsYWJlbD1cImVtYmVyXCIgdmFsdWU9XCI0MzVcIiAvPlxuICAgICAgPEJhciBjb2xvcj1cImxpZ2h0Ymx1ZVwiIGxhYmVsPVwiYW5ndWxhclwiIHZhbHVlPVwiNTYwXCIgLz5cbiAgICA8L0hvcml6b250YWw+XG4gIDwvZGl2PlxuICA8ZGl2IGNsYXNzPVwibTQgaDhcIiBzdHlsZT1cIm1hcmdpbjo4cmVtO1wiPlxuICAgIDxWZXJ0aWNhbCBudW1iZXJzPXt0cnVlfSBsYWJlbD1cImJ1aWxkIHNpemU6XCIgLz5cbiAgPC9kaXY+XG48L2Rpdj5cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLRSxHQUFHLGNBQUMsQ0FBQyxBQUNILFVBQVUsQ0FBRSxJQUFJLEFBRWxCLENBQUMifQ== */";
+    	append_dev(document.head, style);
     }
 
-    // (23:4) <Vertical>
+    // (19:4) <Horizontal label="build size">
     function create_default_slot(ctx) {
     	let bar0;
     	let t0;
     	let bar1;
     	let t1;
     	let bar2;
+    	let t2;
+    	let bar3;
+    	let t3;
+    	let bar4;
+    	let t4;
+    	let bar5;
     	let current;
 
     	bar0 = new Bar({
     			props: {
-    				color: "blue",
-    				value: "19",
-    				label: "blue"
+    				color: "lightblue",
+    				label: "jquery",
+    				value: "84"
     			},
     			$$inline: true
     		});
 
     	bar1 = new Bar({
-    			props: { color: "red", value: "5", label: "" },
+    			props: {
+    				color: "lightblue",
+    				label: "react",
+    				value: "140"
+    			},
     			$$inline: true
     		});
 
     	bar2 = new Bar({
-    			props: { color: "green", value: "10", label: "" },
+    			props: {
+    				color: "orange",
+    				label: "compromise",
+    				value: "170"
+    			},
+    			$$inline: true
+    		});
+
+    	bar3 = new Bar({
+    			props: {
+    				color: "lightblue",
+    				label: "d3",
+    				value: "230"
+    			},
+    			$$inline: true
+    		});
+
+    	bar4 = new Bar({
+    			props: {
+    				color: "lightblue",
+    				label: "ember",
+    				value: "435"
+    			},
+    			$$inline: true
+    		});
+
+    	bar5 = new Bar({
+    			props: {
+    				color: "lightblue",
+    				label: "angular",
+    				value: "560"
+    			},
     			$$inline: true
     		});
 
@@ -1353,6 +1621,12 @@ var app = (function () {
     			create_component(bar1.$$.fragment);
     			t1 = space();
     			create_component(bar2.$$.fragment);
+    			t2 = space();
+    			create_component(bar3.$$.fragment);
+    			t3 = space();
+    			create_component(bar4.$$.fragment);
+    			t4 = space();
+    			create_component(bar5.$$.fragment);
     		},
     		m: function mount(target, anchor) {
     			mount_component(bar0, target, anchor);
@@ -1360,6 +1634,12 @@ var app = (function () {
     			mount_component(bar1, target, anchor);
     			insert_dev(target, t1, anchor);
     			mount_component(bar2, target, anchor);
+    			insert_dev(target, t2, anchor);
+    			mount_component(bar3, target, anchor);
+    			insert_dev(target, t3, anchor);
+    			mount_component(bar4, target, anchor);
+    			insert_dev(target, t4, anchor);
+    			mount_component(bar5, target, anchor);
     			current = true;
     		},
     		p: noop,
@@ -1368,12 +1648,18 @@ var app = (function () {
     			transition_in(bar0.$$.fragment, local);
     			transition_in(bar1.$$.fragment, local);
     			transition_in(bar2.$$.fragment, local);
+    			transition_in(bar3.$$.fragment, local);
+    			transition_in(bar4.$$.fragment, local);
+    			transition_in(bar5.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(bar0.$$.fragment, local);
     			transition_out(bar1.$$.fragment, local);
     			transition_out(bar2.$$.fragment, local);
+    			transition_out(bar3.$$.fragment, local);
+    			transition_out(bar4.$$.fragment, local);
+    			transition_out(bar5.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -1382,6 +1668,12 @@ var app = (function () {
     			destroy_component(bar1, detaching);
     			if (detaching) detach_dev(t1);
     			destroy_component(bar2, detaching);
+    			if (detaching) detach_dev(t2);
+    			destroy_component(bar3, detaching);
+    			if (detaching) detach_dev(t3);
+    			destroy_component(bar4, detaching);
+    			if (detaching) detach_dev(t4);
+    			destroy_component(bar5, detaching);
     		}
     	};
 
@@ -1389,7 +1681,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(23:4) <Vertical>",
+    		source: "(19:4) <Horizontal label=\\\"build size\\\">",
     		ctx
     	});
 
@@ -1413,17 +1705,15 @@ var app = (function () {
 
     	horizontal = new Horizontal({
     			props: {
-    				$$slots: { default: [create_default_slot_1] },
+    				label: "build size",
+    				$$slots: { default: [create_default_slot] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
     	vertical = new Vertical({
-    			props: {
-    				$$slots: { default: [create_default_slot] },
-    				$$scope: { ctx }
-    			},
+    			props: { numbers: true, label: "build size:" },
     			$$inline: true
     		});
 
@@ -1443,18 +1733,18 @@ var app = (function () {
     			t5 = space();
     			div2 = element("div");
     			create_component(vertical.$$.fragment);
-    			add_location(h2, file$3, 9, 2, 115);
+    			add_location(h2, file$3, 12, 2, 170);
     			attr_dev(a, "href", "https://github.com/spencermountain/somehow-barchart");
-    			attr_dev(a, "class", "m4");
-    			add_location(a, file$3, 12, 4, 187);
-    			add_location(div0, file$3, 10, 2, 143);
-    			attr_dev(div1, "class", "mt4");
-    			add_location(div1, file$3, 14, 2, 282);
-    			attr_dev(div2, "class", "m4 h8");
+    			attr_dev(a, "class", "m4 svelte-hk15c8");
+    			add_location(a, file$3, 15, 4, 242);
+    			add_location(div0, file$3, 13, 2, 198);
+    			attr_dev(div1, "class", "m4 svelte-hk15c8");
+    			add_location(div1, file$3, 17, 2, 337);
+    			attr_dev(div2, "class", "m4 h8 svelte-hk15c8");
     			set_style(div2, "margin", "8rem");
-    			add_location(div2, file$3, 21, 2, 491);
-    			attr_dev(div3, "class", "main m4");
-    			add_location(div3, file$3, 8, 0, 91);
+    			add_location(div2, file$3, 27, 2, 768);
+    			attr_dev(div3, "class", "main m4 svelte-hk15c8");
+    			add_location(div3, file$3, 11, 0, 146);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1482,13 +1772,6 @@ var app = (function () {
     			}
 
     			horizontal.$set(horizontal_changes);
-    			const vertical_changes = {};
-
-    			if (dirty & /*$$scope*/ 1) {
-    				vertical_changes.$$scope = { dirty, ctx };
-    			}
-
-    			vertical.$set(vertical_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -1535,6 +1818,7 @@ var app = (function () {
     class Demo extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
+    		if (!document.getElementById("svelte-hk15c8-style")) add_css$2();
     		init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {

@@ -2,6 +2,8 @@
   import { setContext, onMount } from 'svelte'
   import { bars } from './store'
   import layout from './layout'
+  export let label = ''
+  export let numbers = false
 
   let arr = []
   onMount(() => {
@@ -48,21 +50,49 @@
     align-self: center;
     min-width: 20px;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
     border-radius: 2px;
     box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
   }
   .bar:hover {
     box-shadow: 2px 2px 8px 0px steelblue;
   }
+  .container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .title {
+    position: relative;
+    color: #949a9e;
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+  }
+  .value {
+    color: #949a9e;
+    opacity: 0.5;
+    font-size: 0.5rem;
+  }
 </style>
 
-<div class="barchart" style="width:100%; height:100%;">
-  {#each arr as bar}
-    <div class="item">
-      <div class="bar" style="background-color:{bar.color}; height:{bar.size}%;" />
-      <div class="label">{bar.label || ''}</div>
-    </div>
-  {/each}
+<div class="container">
+  {#if label}
+    <div class="title">{label}</div>
+  {/if}
+  <div class="barchart" style="width:100%; height:100%;">
+    {#each arr as bar}
+      <div class="item">
+        {#if numbers}
+          <div class="value">{bar.value}</div>
+        {/if}
+        <div class="bar" style="background-color:{bar.color}; height:{bar.size}%;" />
+        <div class="label" style="color:{bar.color};">{bar.label || ''}</div>
+      </div>
+    {/each}
+  </div>
 </div>
 <slot />
