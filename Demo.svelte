@@ -26,6 +26,15 @@
     </Horizontal>
   </div>
   <div class="m4 h8" style="margin:8rem;">
-    <Vertical numbers={true} label="build size:" />
+    <Vertical numbers={true} label="build size:">
+      <Bar color="lightblue" label="d3" value="230" />
+      <Bar color="lightblue" label="ember" value="435" />
+      <Bar color="lightblue" label="angular" value="560" />
+    </Vertical>
+    <Vertical numbers={true} label="build size:">
+      <Bar color="lightblue" label="jquery" value="84" />
+      <Bar color="lightblue" label="react" value="140" />
+      <Bar color="orange" label="compromise" value="170" />
+    </Vertical>
   </div>
 </div>

@@ -1,7 +1,9 @@
 <script>
   import { setContext, onMount } from 'svelte'
-  import { bars } from './store'
   import layout from './layout'
+  import { writable } from 'svelte/store'
+  export const bars = writable([])
+  setContext('bars', bars)
   export let label = ''
   export let numbers = false
 
