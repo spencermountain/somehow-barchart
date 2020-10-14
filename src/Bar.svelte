@@ -5,6 +5,7 @@
   export let color = 'steelblue'
   export let label = ''
   export let value = '0'
+  export let title = ''
   let bars = getContext('bars')
   import c from 'spencer-color'
   let colors = c.colors
@@ -13,7 +14,8 @@
   $bars.push({
     color: color,
     value: Number(value),
-    label: label
+    label: label,
+    title: title
   })
 </script>
 

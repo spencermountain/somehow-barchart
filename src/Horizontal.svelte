@@ -6,10 +6,11 @@
   setContext('bars', bars)
   export let label = ''
   export let numbers = false
+  export let max = null
 
   let arr = []
   onMount(() => {
-    arr = layout($bars)
+    arr = layout($bars, max)
   })
 </script>
 
@@ -115,7 +116,10 @@
     <div class="col bars">
       {#each arr as bar}
         <div class="row-left">
-          <div class="row bar" style="background-color:{bar.color}; width:{bar.size}%;" />
+          <div
+            class="row bar"
+            title={bar.title}
+            style="background-color:{bar.color}; width:{bar.size}%;" />
           {#if numbers}
             <div class="value">{bar.value}</div>
           {/if}

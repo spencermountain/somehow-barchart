@@ -6,11 +6,14 @@
   setContext('bars', bars)
 
   export let label = ''
+  export let max = null
+  export let axis = false
+  export let height = '100%'
   export let numbers = false
 
   let arr = []
   onMount(() => {
-    arr = layout($bars)
+    arr = layout($bars, max)
   })
 </script>
 
@@ -48,6 +51,7 @@
     flex: 1;
     margin-top: 0.5rem;
     text-align: center;
+    opacity: 0.7;
   }
   .bar {
     align-self: center;
@@ -80,19 +84,32 @@
     opacity: 0.5;
     font-size: 0.5rem;
   }
+  .axis {
+    height: 90%;
+    top: 5%;
+    width: 2px;
+    margin-right: 5px;
+    background-color: lightgrey;
+  }
 </style>
 
-<div class="container">
+<div class="container" style="height:{height};">
   {#if label}
     <div class="title">{label}</div>
   {/if}
   <div class="barchart" style="width:100%; height:100%;">
+    {#if axis}
+      <div class="axis" />
+    {/if}
     {#each arr as bar}
       <div class="item">
         {#if numbers}
           <div class="value">{bar.value}</div>
         {/if}
-        <div class="bar" style="background-color:{bar.color}; height:{bar.size}%;" />
+        <div
+          class="bar"
+          title={bar.title}
+          style="background-color:{bar.color}; height:{bar.size}%;" />
         <div class="label" style="color:{bar.color};">{bar.label || ''}</div>
       </div>
     {/each}

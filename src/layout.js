@@ -15,14 +15,14 @@ const linear = function (obj) {
     let range = minmax[1] - minmax[0]
     let percent = (num - minmax[0]) / range
     let size = world[1] - world[0]
-    return parseInt(size * percent, 10)
+    return size * percent
   }
 
   return calc
 }
 
-const layout = function (arr) {
-  let max = getMax(arr.map((a) => a.value))
+const layout = function (arr, max) {
+  max = max || getMax(arr.map((a) => a.value))
   let scale = linear({
     world: [0, 100],
     minmax: [0, max]
