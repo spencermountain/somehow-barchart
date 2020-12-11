@@ -21,7 +21,21 @@ const linear = function (obj) {
   return calc
 }
 
+const layoutByStack = function (arr, max) {
+  let byStack = {}
+  arr.forEach((a) => {
+    byStack[a.stack] = byStack[a.stack] || []
+    byStack[a.stack].push(a)
+  })
+  // console.log(byStack)
+  byStack = Object.keys(byStack).map((k) => byStack[k])
+}
+
 const layout = function (arr, max) {
+  // compuate a stacked layout
+  // if (arr && arr[0] && arr[0].stack) {
+  //   return layoutByStack(arr, max)
+  // }
   max = max || getMax(arr.map((a) => a.value))
   let scale = linear({
     world: [0, 100],
@@ -31,8 +45,10 @@ const layout = function (arr, max) {
   arr.forEach((o) => {
     o.size = scale(o.value)
     o.share = percent * 100
+    o.already = 0
   })
-
+  // convert to stacked format
+  // arr = arr.map((o) => [o])
   return arr
 }
 

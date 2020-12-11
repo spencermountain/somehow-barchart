@@ -103,6 +103,7 @@
     {#if axis}
       <div class="axis" />
     {/if}
+    <!-- {#each arr as stack} -->
     {#each arr as bar}
       <div class="item" style="max-width:{bar.share}%; min-width:{bar.share}%;">
         {#if numbers}
@@ -114,6 +115,7 @@
           style="background-color:{bar.color}; height:{bar.size}%; " />
         <div class="label" style="color:{bar.color};">{bar.label || ''}</div>
       </div>
+      <!-- {/each} -->
     {/each}
   </div>
 </div>
