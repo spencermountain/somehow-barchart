@@ -14,6 +14,7 @@
   let arr = []
   onMount(() => {
     arr = layout($bars, max)
+    console.log(arr)
   })
 </script>
 
@@ -32,21 +33,22 @@
   }
   .item {
     display: flex;
-    flex: 1;
+    /* flex: 1; */
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     text-align: center;
     flex-wrap: nowrap;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     align-self: stretch;
     margin: 5px;
+    /* overflow: hidden; */
   }
   .label {
     color: #a6a4a4;
     min-height: 20px;
     max-height: 20px;
-    font-size: 16px;
+    font-size: 12px;
     width: 100%;
     flex: 1;
     margin-top: 0.5rem;
@@ -102,14 +104,14 @@
       <div class="axis" />
     {/if}
     {#each arr as bar}
-      <div class="item">
+      <div class="item" style="max-width:{bar.share}%; min-width:{bar.share}%;">
         {#if numbers}
           <div class="value">{bar.value}</div>
         {/if}
         <div
           class="bar"
           title={bar.title}
-          style="background-color:{bar.color}; height:{bar.size}%;" />
+          style="background-color:{bar.color}; height:{bar.size}%; " />
         <div class="label" style="color:{bar.color};">{bar.label || ''}</div>
       </div>
     {/each}

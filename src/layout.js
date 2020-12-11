@@ -27,9 +27,12 @@ const layout = function (arr, max) {
     world: [0, 100],
     minmax: [0, max]
   })
+  let percent = 1 / arr.length
   arr.forEach((o) => {
     o.size = scale(o.value)
+    o.share = percent * 100
   })
+
   return arr
 }
 
