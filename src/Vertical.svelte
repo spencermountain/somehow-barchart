@@ -18,6 +18,33 @@
   })
 </script>
 
+<div class="container" style="height:{height};">
+  {#if label}
+    <div class="title">{label}</div>
+  {/if}
+  <div class="barchart" style="width:100%; height:100%;">
+    {#if axis}
+      <div class="axis" />
+    {/if}
+    <!-- {#each arr as stack} -->
+    {#each arr as bar}
+      <div class="item" style="max-width:{bar.share}%; min-width:{bar.share}%;">
+        {#if numbers}
+          <div class="value">{bar.value}</div>
+        {/if}
+        <div
+          class="bar"
+          title={bar.title}
+          style="background-color:{bar.color}; height:{bar.size}%; "
+        />
+        <div class="label" style="color:{bar.color};">{bar.label || ''}</div>
+      </div>
+      <!-- {/each} -->
+    {/each}
+  </div>
+</div>
+<slot />
+
 <style>
   .barchart {
     position: relative;
@@ -41,7 +68,9 @@
     flex-wrap: nowrap;
     /* flex-grow: 1; */
     align-self: stretch;
-    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    /* margin: 5px; */
     /* overflow: hidden; */
   }
   .label {
@@ -94,29 +123,3 @@
     background-color: lightgrey;
   }
 </style>
-
-<div class="container" style="height:{height};">
-  {#if label}
-    <div class="title">{label}</div>
-  {/if}
-  <div class="barchart" style="width:100%; height:100%;">
-    {#if axis}
-      <div class="axis" />
-    {/if}
-    <!-- {#each arr as stack} -->
-    {#each arr as bar}
-      <div class="item" style="max-width:{bar.share}%; min-width:{bar.share}%;">
-        {#if numbers}
-          <div class="value">{bar.value}</div>
-        {/if}
-        <div
-          class="bar"
-          title={bar.title}
-          style="background-color:{bar.color}; height:{bar.size}%; " />
-        <div class="label" style="color:{bar.color};">{bar.label || ''}</div>
-      </div>
-      <!-- {/each} -->
-    {/each}
-  </div>
-</div>
-<slot />
