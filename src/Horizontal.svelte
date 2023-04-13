@@ -7,12 +7,47 @@
   export let label = ''
   export let numbers = false
   export let max = null
+  export let align = 'left'
 
   let arr = []
   onMount(() => {
     arr = layout($bars, max)
   })
 </script>
+
+<div class="container">
+  {#if label}
+    <div class="title">{label}</div>
+  {/if}
+  <div class="barchart" class:rightLabel={align === 'right'}>
+    <!-- labels -->
+    <div class="col labels">
+      {#each arr as bar}
+        <div class="row label" style="color:{bar.color};">
+          {@html bar.label}
+        </div>
+      {/each}
+    </div>
+    <!-- bars -->
+    <div class="col bars">
+      {#each arr as bar}
+        <div class="row-left" class:right={align === 'right'}>
+          <div
+            class="row bar"
+            title={bar.title}
+            on:click={bar.click()}
+            on:mouseenter={bar.hover()}
+            style="background-color:{bar.color}; width:{bar.size}%;"
+          />
+          {#if numbers}
+            <div class="value">{bar.value}</div>
+          {/if}
+        </div>
+      {/each}
+    </div>
+  </div>
+</div>
+<slot />
 
 <style>
   .barchart {
@@ -25,6 +60,9 @@
     text-align: right;
     flex-wrap: nowrap;
     align-self: stretch;
+  }
+  .rightLabel {
+    flex-direction: row-reverse !important;
   }
   .col {
     display: flex;
@@ -91,6 +129,9 @@
     flex-wrap: nowrap;
     align-self: stretch;
   }
+  .right {
+    justify-content: flex-end !important;
+  }
   .value {
     color: #949a9e;
     opacity: 0.5;
@@ -98,35 +139,3 @@
     margin-left: 0.3rem;
   }
 </style>
-
-<div class="container">
-  {#if label}
-    <div class="title">{label}</div>
-  {/if}
-  <div class="barchart">
-    <!-- labels -->
-    <div class="col labels">
-      {#each arr as bar}
-        <div class="row label" style="color:{bar.color};">
-          {@html bar.label}
-        </div>
-      {/each}
-    </div>
-    <!-- bars -->
-    <div class="col bars">
-      {#each arr as bar}
-        <div class="row-left">
-          <div
-            class="row bar"
-            title={bar.title}
-            style="background-color:{bar.color}; width:{bar.size}%;" />
-          {#if numbers}
-            <div class="value">{bar.value}</div>
-          {/if}
-        </div>
-      {/each}
-    </div>
-
-  </div>
-</div>
-<slot />

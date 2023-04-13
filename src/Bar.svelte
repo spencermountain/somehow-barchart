@@ -4,6 +4,8 @@
   export let label = ''
   export let value = '0'
   export let title = ''
+  export let hover = () => {}
+  export let click = () => {}
 
   let bars = getContext('bars')
   import c from 'spencer-color'
@@ -13,11 +15,13 @@
   let stack = getContext('stack')
 
   $bars.push({
-    color: color,
     value: Number(value),
-    label: label,
-    title: title,
-    stack: stack
+    color,
+    label,
+    hover,
+    click,
+    title,
+    stack
   })
 </script>
 

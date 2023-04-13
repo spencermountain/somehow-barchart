@@ -35,7 +35,9 @@
         <div
           class="bar"
           title={bar.title}
-          style="background-color:{bar.color}; height:{bar.size}%; "
+          on:click={bar.click()}
+          on:mouseenter={bar.hover()}
+          style="background-color:{bar.color}; height:{bar.size}%;"
         />
         <div class="label" style="color:{bar.color};">{bar.label || ''}</div>
       </div>
